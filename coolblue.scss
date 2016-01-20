@@ -1,0 +1,420 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+
+$blue: #0090E3;
+$baby-blue: #CCE9F9;
+$grey: #ddd;
+$light-grey: #f3f3f3;
+$orange: #f60;
+$dark-blue: #285dab;
+
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: 'Open Sans';
+	font-size: 1.4rem;
+	line-height: 1.5;
+	margin: 0;
+	padding-top: 60px;
+}
+
+.wrapper {
+	max-width: 1200px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+@mixin icon($file, $size: 30px) {
+	content: "";
+	background: url("images/iconmonstr-#{$file}-icon.svg") no-repeat;
+    background-size: $size;
+    width: $size;
+    height: $size;
+    display: inline-flex;
+    float: left;
+}
+
+h1 {
+	background: url('images/coolblue-logo.png') no-repeat;
+	text-indent: -999px;
+	background-size: 90px;
+	margin: 0;
+	height: 80px;
+	position:relative;
+	top:-20px;
+}
+
+ul {
+	list-style-type: none;
+	padding-left: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+.free {
+	color: $orange;
+}
+
+.header {
+	background-color: $blue;
+	height: 60px;
+	position: fixed;
+	width: 100%;
+	top:0;
+	z-index: 1;
+	border-bottom: 1px solid $dark-blue;
+
+	a {
+		color: white;
+	}
+}
+
+.header-contents {
+	display: flex;
+	
+	&-logo {
+		flex-basis: 10%;
+	}
+
+	&-nav {
+		flex-basis: 20%;
+		padding-top: 10px;
+		
+		a:hover {
+			display: block;
+			background-color: lighten($blue, 1.5%); /*change padding of background-color */
+			width: 50%;
+		}
+	}
+
+	&-search {
+		flex-basis: 50%;
+		padding-top: 10px;
+		position: relative;
+		input {
+			width: 70%;
+			height: 40px;
+			border: 0;
+			border-radius: 2px;
+			padding-left: 20px;
+			font-size: 1.4rem;
+		}
+
+		button {
+			background: url('images/iconmonstr-magnifier-icon.svg') no-repeat;
+			text-indent: -9999px;
+			background-size: 30px;
+			height: 40px;
+			width: 40px;
+			border: 0;
+			position: absolute;
+			right: 170px;
+			top: 16px;
+			transform: rotate(90deg);
+		}
+	}
+
+	&-login {
+		flex-basis: 13%;
+		display: flex;
+		font-weight: bold;
+		padding-top: 20px;
+		margin-left: 40px;
+		span {
+			flex-basis: 50%;
+			display: block;
+		}
+		&-cart {
+			background: url('images/iconmonstr-shopping-cart-2-icon.svg') no-repeat;
+			text-indent: -9999px;
+			background-size: 50px;
+			position: relative;
+			bottom: 10px;
+			transform: scaleX(-1);
+		}
+	}
+}
+
+.main-contents {
+	display: flex;
+
+	&-nav {
+		flex-basis: 20%;
+		border-left: 1px solid $grey;
+		border-right: 1px solid $grey;
+		border-bottom: 1px solid $grey;
+		margin-top: 0;
+		padding-top: 10px;
+		li {
+			text-decoration: none;
+			color: $blue;
+			padding: 5px 5px 5px 15px;
+			&:hover {
+				cursor:default;
+				background-color:$baby-blue;
+			}
+		}
+	}
+
+	&-img {
+		flex-basis: 55%;
+		margin-left: 20px;
+		margin-top: 30px;
+	}
+
+	&-service {
+		padding-top: 20px;
+		flex-basis: 30%;
+		a {
+			color: black;
+		}
+		&__contact {
+			display: flex;
+			&-img {
+				flex-basis: 20%;
+				background: url('images/large-specialist.png') no-repeat;
+				text-indent: -9999px;
+				background-size: 80px;
+				height: 70px;
+
+			}
+			&-items {
+				flex-basis: 80%;
+			}
+			.number {
+				font-weight: 800;
+			}
+		}
+		&__info {
+			padding: 10px 10px 10px 10px;
+			border: 1px solid $grey;
+			background-color: $light-grey;
+			.slogan {
+				font-weight: bold;
+				font-size: 1.7rem;
+				&:after {
+					@include icon("smiley-2", 11px);
+					padding-bottom: 10px;
+					float: none;
+				}
+			}
+
+			li {
+				margin: 5px 15px 5px 0px;
+				font-size: 1.3rem;
+				line-height: 1.5;
+				&:before {
+					@include icon("check", 20px);
+				}
+			}
+		}
+	}
+
+	.social {
+		line-height: 3;
+		&--smiley:before {
+			@include icon("smiley-tongue");
+		    position: relative;
+		    top:5px;
+		}
+		&--facebook:before {
+			@include icon("facebook");
+		    position: relative;
+		    top:5px;
+		}
+
+		&--shop:before {
+			@include icon("shopping");
+			position: relative;
+		    top:5px;
+		}
+	}
+}
+
+.content-middle {
+	font-family: "Arial";
+	h2 {
+		text-transform: uppercase;
+		color: $dark-blue;
+		font-weight: bold; 
+		margin: 0;
+		font-size: 2.3rem;
+		line-height: 1.5;
+		
+		&:after {
+			content: ".";
+			color: $orange;
+		}
+	}
+
+	h3 {
+		margin: 0;
+		font-size:1.7rem;
+		font-weight: 800;
+		margin-bottom: 5px;
+		margin-top: 5px;
+		height: 75px;
+	}
+
+	&__slogan {
+		font-family: "Georgia";
+		color: $blue;
+		font-size: 2.2rem;
+		line-height: 1.5;
+	}
+
+	&__product-items {
+		display: flex;
+		.arrow {
+			@include icon("arrow", 5px);
+		}
+	}
+
+	a {
+		color: $blue;
+	}
+
+	.first {
+		margin-left: 0;
+	}
+
+	.star {
+		@include icon("star");
+		position: relative;
+		left:-5px;
+	}
+
+	.score {
+		margin-bottom: 10px;
+	}
+
+	figure {
+		margin-right: 0px;
+		margin-left: 10px;
+		
+		figcaption {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+}
+
+.container {
+	border: 1px solid white;
+	padding: 5px 40px 10px 40px;
+
+	&:hover {
+		border: 1px solid $light-grey;
+		border-radius: 3px;
+		box-shadow: 3px 3px 3px 1px $light-grey;
+	}
+}
+
+.footer-top {
+	display:flex;
+	padding-left: 100px;
+	padding-top: 20px;
+	border-top: 1px solid $grey;
+	height:50px;
+	
+	h2 {
+		flex-basis: 20%;
+		margin: 0;
+		font-size: 1.7rem;
+	}
+
+	&__item {
+		margin-left: 10px;
+		margin-right: 10px;
+		margin-top: 5px;
+		font-size: 1.3rem;
+		line-height: 1.5;
+		a {
+			color: black;
+			text-decoration: none;
+		}
+		&:before {
+			@include icon("check",20px);
+		}
+	}
+}
+
+.footer-middle {
+	padding-top: 30px;
+	color: white;
+	background-color: $blue;
+	&--contact {
+		display: flex;
+	}
+	&--about {
+		display: flex;
+		font-size: 1.3rem;
+		h2 {
+			margin-bottom: 0px;
+		}
+		&>div {
+			flex-basis: 25%;
+			a {
+				color: white;
+			}
+		}
+		p:before {
+			@include icon("arrow", 15px);
+			position: relative;
+			top: 1px;
+		}
+	}
+	.specialist-img {
+	display: block;
+	flex-basis: 30%;
+	}
+
+	$list: facebook2, twitter, youtube, shop;
+
+	.social-media {
+		flex-basis: 45%;
+		ul {
+			display: flex;
+			flex-wrap: wrap;
+		}
+		li {
+			flex-basis: 45%;
+			display: block;
+			margin: 5px 5px 5px 0px;
+		}
+		a {
+			color: white;
+			text-decoration: none;
+		}
+
+		@each $list-item in $list {
+			li .#{$list-item}:before {
+				@include icon($list-item, 50px);
+			}
+		}
+	}
+
+	.newsletter {
+		flex-basis: 30%;
+	}
+
+	.border {
+		border-bottom: 1px solid #40acea;
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
